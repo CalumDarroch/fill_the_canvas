@@ -53,3 +53,9 @@ __?__
 Shows in program help.
 
 ## Approach
+
+
+
+Problems:
+
+- I found that when editing my 2d canvas array using the `color_pixel` method it was editing all of the sub-arrays. I figured out that this is because all the sub-array were the same object, because I had made a variable called "row" in my `create_canvas` method and Ruby was merely replicating that one variable in the array, so they were all changing!

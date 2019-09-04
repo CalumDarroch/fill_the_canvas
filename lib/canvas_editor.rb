@@ -12,16 +12,15 @@ class CanvasEditor
       fail 'Minimum canvas size is 1 x 1'
     else
       new_canvas = []
-      column = []
-      m.times { column << 'O' }
-      n.times { new_canvas << column }
+      n.times { new_canvas << Array.new(m, 'O') }
     end
     @canvas = new_canvas
     return new_canvas
   end
 
   def color_pixel(m, n, color)
-    return [['C']]
+    @canvas[n - 1][m - 1] = color
+    return @canvas
   end
 
 end
