@@ -6,8 +6,8 @@ class CanvasEditor
     else
       new_canvas = []
       column = []
-      n.times { column << 'O' }
-      m.times { new_canvas << column }
+      m.times { column << 'O' }
+      n.times { new_canvas << column }
     end
     return new_canvas
   end
