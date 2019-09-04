@@ -5,27 +5,29 @@ class CanvasEditor
     @canvas = nil
   end
 
-  def create_canvas(m, n)
-    if m > 250 || n > 250
+# I M N
+  def create_canvas(x, y)
+    if x > 250 || y > 250
       fail 'Maximum canvas size is 250 x 250'
-    elsif m < 1 || n < 1
+    elsif x < 1 || y < 1
       fail 'Minimum canvas size is 1 x 1'
     else
       new_canvas = []
-      n.times { new_canvas << Array.new(m, 'O') }
+      y.times { new_canvas << Array.new(x, 'O') }
     end
     @canvas = new_canvas
     return new_canvas
   end
 
-  def color_pixel(m, n, color)
-    @canvas[n - 1][m - 1] = color
+# L X Y C
+  def color_pixel(x, y, color)
+    @canvas[y - 1][x - 1] = color
     return @canvas
   end
 
+# C
   def clear_canvas
-    @canvas = @canvas.map { |n| n = Array.new(@canvas[0].length, 'O') }
+    @canvas = @canvas.map { |y| y = Array.new(@canvas[0].length, 'O') }
     return @canvas
   end
-
 end
