@@ -19,15 +19,29 @@ class CanvasEditor
     return new_canvas
   end
 
+# C
+  def clear_canvas
+    @canvas = @canvas.map { |y| y = Array.new(@canvas[0].length, 'O') }
+    return @canvas
+  end
+
 # L X Y C
   def color_pixel(x, y, color)
     @canvas[y - 1][x - 1] = color
     return @canvas
   end
 
-# C
-  def clear_canvas
-    @canvas = @canvas.map { |y| y = Array.new(@canvas[0].length, 'O') }
+# V X Y1 Y2 C
+  def draw_vertical(x, y1, y2, color)
+    while true do
+      if y1 <= y2
+        @canvas[y1 - 1][x - 1] = color
+        y1 += 1
+      else
+        break
+      end
+    end
     return @canvas
   end
+
 end

@@ -41,7 +41,7 @@ describe CanvasEditor do
     end
   end
 
-  describe 'clear_canvas' do
+  describe '#clear_canvas' do
     it 'Resets the canvas to blank' do
       subject.create_canvas(2, 2)
       subject.color_pixel(1, 1, 'C')
@@ -54,10 +54,21 @@ describe CanvasEditor do
                                                      ['O', 'O', 'C', 'O', 'O'],
                                                      ['O', 'O', 'O', 'O', 'O'] ])
       expect(subject.clear_canvas).to eq([ ['O', 'O', 'O', 'O', 'O'],
-                                                  ['O', 'O', 'O', 'O', 'O'],
-                                                  ['O', 'O', 'O', 'O', 'O'],
-                                                  ['O', 'O', 'O', 'O', 'O'],
-                                                  ['O', 'O', 'O', 'O', 'O'] ])
+                                           ['O', 'O', 'O', 'O', 'O'],
+                                           ['O', 'O', 'O', 'O', 'O'],
+                                           ['O', 'O', 'O', 'O', 'O'],
+                                           ['O', 'O', 'O', 'O', 'O'] ])
+    end
+  end
+
+  describe '#draw_vertical' do
+    it 'colors all pixels between (and including) two coordinates in one column' do
+      subject.create_canvas(5, 5)
+      expect(subject.draw_vertical(2, 2, 4, 'C')).to eq([ ['O', 'O', 'O', 'O', 'O'],
+                                                          ['O', 'C', 'O', 'O', 'O'],
+                                                          ['O', 'C', 'O', 'O', 'O'],
+                                                          ['O', 'C', 'O', 'O', 'O'],
+                                                          ['O', 'O', 'O', 'O', 'O'] ])
     end
   end
 
