@@ -12,6 +12,10 @@ describe CanvasEditor do
                                                   ['O', 'O', 'O', 'O', 'O'],
                                                   ['O', 'O', 'O', 'O', 'O'] ])
     end
+
+    it 'returns an error if you enter a size greater than 250 in either axis' do
+      expect { subject.create_canvas(251, 1) }.to raise_error('Maximum canvas size is 250 x 250')
+    end
   end
 
 end
