@@ -1,7 +1,11 @@
 class CanvasEditor
 
   def create_canvas(m, n)
-    return [[0]]
+    new_canvas = []
+    column = []
+    n.times { column << 'O' }
+    m.times { new_canvas << column }
+    return new_canvas
   end
 
 end
