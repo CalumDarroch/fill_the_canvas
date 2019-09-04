@@ -23,4 +23,9 @@ class CanvasEditor
     return @canvas
   end
 
+  def clear_canvas
+    @canvas = @canvas.map { |n| n = Array.new(@canvas[0].length, 'O') }
+    return @canvas
+  end
+
 end

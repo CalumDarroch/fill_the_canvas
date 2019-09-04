@@ -34,10 +34,30 @@ describe CanvasEditor do
 
   describe '#color_pixel' do
     it 'changes the color of a designated pixel' do
-      # subject.create_canvas(1, 1)
-      # expect(subject.color_pixel(1, 1, 'C')).to eq([['C']])
+      subject.create_canvas(1, 1)
+      expect(subject.color_pixel(1, 1, 'C')).to eq([['C']])
       subject.create_canvas(2, 2)
       expect(subject.color_pixel(2, 2, 'C')).to eq([['O', 'O'], ['O', 'C']])
+    end
+  end
+
+  describe 'clear_canvas' do
+    it 'Resets the canvas to blank' do
+      subject.create_canvas(2, 2)
+      subject.color_pixel(1, 1, 'C')
+      expect(subject.color_pixel(2, 2, 'C')).to eq([['C', 'O'], ['O', 'C']])
+      expect(subject.clear_canvas).to eq([['O', 'O'], ['O', 'O']])
+      subject.create_canvas(5, 5)
+      expect(subject.color_pixel(3, 4, 'C')).to eq([ ['O', 'O', 'O', 'O', 'O'],
+                                                     ['O', 'O', 'O', 'O', 'O'],
+                                                     ['O', 'O', 'O', 'O', 'O'],
+                                                     ['O', 'O', 'C', 'O', 'O'],
+                                                     ['O', 'O', 'O', 'O', 'O'] ])
+      expect(subject.clear_canvas).to eq([ ['O', 'O', 'O', 'O', 'O'],
+                                                  ['O', 'O', 'O', 'O', 'O'],
+                                                  ['O', 'O', 'O', 'O', 'O'],
+                                                  ['O', 'O', 'O', 'O', 'O'],
+                                                  ['O', 'O', 'O', 'O', 'O'] ])
     end
   end
 
