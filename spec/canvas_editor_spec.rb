@@ -17,6 +17,10 @@ describe CanvasEditor do
       expect { subject.create_canvas(251, 1) }.to raise_error('Maximum canvas size is 250 x 250')
       expect { subject.create_canvas(1, 251) }.to raise_error('Maximum canvas size is 250 x 250')
     end
+
+    it 'returns an error if you enter a size lower than 1 in either axis' do
+      expect { subject.create_canvas(0, 20) }.to raise_error('Minimum canvas size is 1 x 1')
+    end
   end
 
 end
