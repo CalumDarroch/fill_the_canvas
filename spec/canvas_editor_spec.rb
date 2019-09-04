@@ -22,6 +22,14 @@ describe CanvasEditor do
       expect { subject.create_canvas(0, 20) }.to raise_error('Minimum canvas size is 1 x 1')
       expect { subject.create_canvas(20, -3) }.to raise_error('Minimum canvas size is 1 x 1')
     end
+
+    it 'stores the new canvas as an instance variable on the class' do
+      expect(subject.canvas).to eq(nil)
+      subject.create_canvas(1, 1)
+      expect(subject.canvas).to eq([['O']])
+      subject.create_canvas(2, 2)
+      expect(subject.canvas).to eq([['O', 'O'], ['O', 'O']])
+    end
   end
 
 end
