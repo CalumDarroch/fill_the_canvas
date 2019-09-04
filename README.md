@@ -51,3 +51,5 @@ Terminate the session.
 
 __?__
 Shows in program help.
+
+## Approach

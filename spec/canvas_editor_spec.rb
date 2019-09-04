@@ -32,4 +32,11 @@ describe CanvasEditor do
     end
   end
 
+  describe '#color_pixel' do
+    it 'changes the color of a designated pixel' do
+      subject.create_canvas(1, 1)
+      expect(subject.color_pixel(1, 1, 'C')).to eq([['C']])
+    end
+  end
+
 end

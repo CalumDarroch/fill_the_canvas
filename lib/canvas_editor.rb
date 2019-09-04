@@ -20,4 +20,8 @@ class CanvasEditor
     return new_canvas
   end
 
+  def color_pixel(m, n, color)
+    return [['C']]
+  end
+
 end
